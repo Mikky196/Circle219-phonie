@@ -1,22 +1,80 @@
+import { getNetworkOperators } from "./assets/scripts/data.mjs";
+
 function startApp() {
-  
+  // Your entire app should not necessarily be coded inside this 
+  // single function (though there's no penalty for that), 
+  // so create and use/call additional functions from here
+
   const header = document.querySelector('h1');
-  
   if (header) {
-    header.textContent = 'Phonie!!';
+    header.textContent = 'PHONIE';
   }
 };
 
-export function getNetworkOperators() {
-  return {
-    MTN: ["0702", "0703", "0706", "0803", "0806", "0810", "0813", "0814", "0816", "0903", "0906"],
-    AIRTEL: ["0701", "0708", "0802", "0808", "0812", "0902", "0907", "0901"],
-    '9mobile': ["0809", "0817", "0818", "0908", "0909"],
-    GLO: ["0705", "0805", "0807", "0811", "0815", "0905"],
-    NTEL: ["0804", "234804", "+234804"],
-  };
+// show network operator logo of user's phone number
+export function showLogo() {
+  // Get object of network operators
+  const networkOperators = getNetworkOperators();
+
+  // Get phone number
+  let inputField = document.querySelector("#phonie");
+  console.log(inputField)
+  // add event listener to input field
+  inputField.addEventListener("input", displayMatchingServiceProvider);
+
+  // Function to display matching operator as the user types in the input field
+  function displayMatchingServiceProvider() {
+    // get value from input field as string
+    let phoneNum = inputField.value.toString();
+
+    // check if the value matches any prefixes in the network operator object
+    let networkName = getMatchingNetworkOperator(phoneNum);
+
+    // get the img element to display network operator logo with
+    let logo = document.getElementById("carrier-logo");
+
+    if (networkName) {
+      // if network name is a match, display the corresponding logo
+      logo.src = `./assets/img/logos/${networkName.toLowerCase()}.png`;
+      logo.classList.remove("hidden");
+    } else {
+      // if network name is not found, display nothing
+      logo.className = "hidden";
+    }
+  }
+
+  // Function to search network operator prefixes for a match with the value from input field
+  function getMatchingNetworkOperator(phoneNum) {
+    // variable to hold matching network operator if found
+    let matchingNetworkOperator = "";
+
+    // get a list of names network operators
+    let listOfOperators = [];
+    for (let operatorName in networkOperators) {
+      // populate empty array with names of network operators
+      listOfOperators.push(operatorName);
+    }
+
+    for (let network of listOfOperators) {
+      // Loop through all network operator names in the list
+
+      for (let operatorPrefix of networkOperators[network]) {
+        // for every network operator, loop through the array of prefixes
+
+        if (phoneNum.startsWith(operatorPrefix) && phoneNum.length === 11) {
+          // if a prefix matches the value of the input field, store the 
+          // corresponding network name in the variable matchingNetworkOperator
+          matchingNetworkOperator = network;
+        }
+      }
+    }
+
+    // return the variable (containing the matching network name)
+    return matchingNetworkOperator;
+  }
 }
+
 
 // ======= DO NOT EDIT ============== //
 export default startApp;
-// ======= EEND DO NOT EDIT ========= //
+  // ======= EEND DO NOT EDIT ========= //
