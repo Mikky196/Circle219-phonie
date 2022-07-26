@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Name of chosen challenge</title>
 
-    <link rel="stylesheet" href="style.css">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Name of chosen challenge</title>
+
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+
+<body class="grid">
   <div class="container">
     <div class="heading">
-      <h1>Phonie</h1>
+      <h1></h1>
       <p>The number one phone lookup service in Nigeria</p>
     </div>
 
-    <div class="formGroup">
-      <form>
-        <label>ENTER PHONE NUMBER:</label>
-        <input type="text" required>
-        <button> SEARCH </button>
+    <div>
+      <form class="formGroup">
+        <div class="phone-number">
+          <div class="country-code">
+            <input class="code" name="code" disabled placeholder="+234" type="text" />
+          </div>
+          <div>
+            <input placeholder="Your Phone Number" class="phonie" name="phonie" type="number" required />
+          </div>
+        </div>
+
+        <div class="logo-wrap">
+          <img class="hidden" id="carrier-logo" src="" alt="carrier logo" />
+        </div>
+        <div class="check-btn">
+          <button class="search-btn">CHECK</button>
+        </div>
       </form>
     </div>
 
@@ -27,10 +41,10 @@
       <h5>SEARCH HISTORY</h5>
     </div>
   </div>
-<!--     <h2>make some magic here!!</h2> -->
 
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
-    <script src="index.mjs" type="module"></script>
-    <!-- // ============= EEND DO NOT EDIT ============== // -->
+  <!-- // ============= EEND DO NOT EDIT ============== // -->
+  <script src="index.mjs" type="module"></script>
+  <!-- // ============= EEND DO NOT EDIT ============== // -->
 </body>
+
 </html>
