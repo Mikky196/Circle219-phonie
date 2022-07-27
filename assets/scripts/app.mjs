@@ -1,24 +1,17 @@
-import { getNetworkOperators } from "./assets/scripts/data.mjs";
+import { getNetworkOperators, getGreetings } from "./data.mjs";
 
 function startApp() {
-  // Your entire app should not necessarily be coded inside this 
-  // single function (though there's no penalty for that), 
-  // so create and use/call additional functions from here
-
-  const header = document.querySelector('h1');
-  if (header) {
-    header.textContent = 'PHONIE';
-  }
+  console.log("..running");
+  showLogo();
 };
 
 // show network operator logo of user's phone number
-export function showLogo() {
+function showLogo() {
   // Get object of network operators
   const networkOperators = getNetworkOperators();
 
   // Get phone number
-  let inputField = document.querySelector("#phonie");
-  console.log(inputField)
+  let inputField = document.querySelector("#phone");
   // add event listener to input field
   inputField.addEventListener("input", displayMatchingServiceProvider);
 
@@ -31,20 +24,27 @@ export function showLogo() {
     let networkName = getMatchingNetworkOperator(phoneNum);
 
     // get the img element to display network operator logo with
-    let logo = document.getElementById("carrier-logo");
+    let logo = document.querySelector(".logo");
+
+    // update headline
+    updateHeadline(networkName);
 
     if (networkName) {
       // if network name is a match, display the corresponding logo
-      logo.src = `./assets/img/logos/${networkName.toLowerCase()}.png`;
+      logo.src = `./assets/img/logo/${networkName.toLowerCase()}.png`;
       logo.classList.remove("hidden");
     } else {
-      // if network name is not found, display nothing
-      logo.className = "hidden";
+      // if network name is not found, display error image
+      logo.src = `./assets/img/not-found.svg`;
     }
   }
 
   // Function to search network operator prefixes for a match with the value from input field
   function getMatchingNetworkOperator(phoneNum) {
+    if (!phoneNum.startsWith('0')) {
+        phoneNum = '0' + phoneNum;
+    }
+
     // variable to hold matching network operator if found
     let matchingNetworkOperator = "";
 
@@ -62,8 +62,7 @@ export function showLogo() {
         // for every network operator, loop through the array of prefixes
 
         if (phoneNum.startsWith(operatorPrefix) && phoneNum.length === 11) {
-          // if a prefix matches the value of the input field, store the 
-          // corresponding network name in the variable matchingNetworkOperator
+          // if a prefix matches the value of the input field, store the corresponding network name in the variable matchingNetworkOperator
           matchingNetworkOperator = network;
         }
       }
@@ -72,9 +71,28 @@ export function showLogo() {
     // return the variable (containing the matching network name)
     return matchingNetworkOperator;
   }
-}
 
+  function updateHeadline(network) {
+    const greetings = getGreetings();
+    // get random greeting
+    let greeting = () => {
+      let random = Math.floor(Math.random() * greetings.length);
+      return greetings[random];
+    };
+    // get the headline text elements
+    let title = document.querySelector(".result-title");
+    let headline = document.querySelector(".result-headline");
+    if (network) {
+      title.textContent = greeting();
+      headline.textContent = `Your service provider is ${network}`;
+    } else {
+      title.textContent = `OOPS!`;
+      headline.textContent = `Sorry, we couldn't find your service provider.`;
+    }
+  }
+}
 
 // ======= DO NOT EDIT ============== //
 export default startApp;
-  // ======= EEND DO NOT EDIT ========= //
+// ======= EEND DO NOT EDIT ========= //
+  
