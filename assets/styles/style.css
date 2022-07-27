@@ -33,7 +33,7 @@ body, input {
     border-radius: 50%;
     background: linear-gradient(-45deg, #4481eb, #04befe);
     top: 5%;
-    right: 50%;
+    right: 40%;
     transform: translateY(-50%);
     z-index: 6;
     transition: 1.8s ease-out;
@@ -151,7 +151,6 @@ body, input {
     left: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    /* background-color: rgb(249, 241, 241); */
 }
 
 .panel {
@@ -249,7 +248,7 @@ body, input {
 /* Animation */
 .container.show-result-mode:before {
     transform: translate(100%, -50%);
-    right: 50%;
+    right: 40%;
 }
 
 .container.show-result-mode .panel-left .image,
