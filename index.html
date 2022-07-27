@@ -2,42 +2,70 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Name of chosen challenge</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
 
-  <link rel="stylesheet" href="style.css" />
+    <!-- Google Material Icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./assets/styles/main.css">
+
+    <!-- Link JS -->
+    <script src="./assets/scripts/index.mjs" type="module" defer></script>
+    <title>Phonie - Nigerian Phone Lookup Service</title>
 </head>
 
-<body class="grid">
-  <div class="container">
-    <div class="heading">
-      <h1></h1>
-      <p>The number one phone lookup service in Nigeria</p>
-    </div>
+<body>
+    <main class="container">
+        <section class="top-wrapper">
+            <div class="top-container">
+                <form action="" class="get-number">
+                    <p class="form-headline">Let's find your number. Enter it below:</p>
+                    <div class="input-field">
+                        <span class="material-symbols-outlined">call</span>
 
-    <div>
-      <form class="formGroup">
-        <div class="phone-number">
-          <div>
-            <input class="code" name="code" disabled placeholder="+234" type="text" />
-          </div>
-          <div>
-            <input placeholder="Your Phone Number" id="phonie" name="phonie" type="number" required />
-          </div>
-        </div>
+                        <input type="text" id="ccode" placeholder="+234" disabled>
+                        <input type="tel" name="phone" id="phone" required>
+                    </div>
+                    <input type="submit" value="Search" class="btn" id="search-button">
+                </form>
 
-        <div class="logo-wrap">
-          <img class="hidden" id="carrier-logo" src="" alt="carrier logo" />
-        </div>
-        <button class="search-btn">CHECK</button>
-      </form>
-    </div>
+                <div class="show-network">
+                    <h2 class="result-title"></h2>
+                    <p class="result-headline"></p>
+                    <div class="logo-container">
+                        <img src="" alt="" class="logo hidden">
+                    </div>
+                </div>
+            </div>
 
-  <!-- // ============= EEND DO NOT EDIT ============== // -->
-  <script src="index.mjs" type="module"></script>
-  <!-- // ============= EEND DO NOT EDIT ============== // -->
+        </section>
+
+        <section class="panels-container">
+            <div class="panel panel-left">
+                <div class="welcome">
+                    <h2 class="welcome-title">Phonie</h2>
+                    <p class="welcome-text">Your number one phone lookup service</p>
+                    <button class="btn try now">Get started</button>
+                </div>
+
+                <img src="./assets/img/search.svg" class="image" alt="">
+            </div>
+
+            <div class="panel panel-right">
+                <div class="welcome">
+                    <h2 class="welcome-title">Phonie</h2>
+                    <p class="welcome-text">Your number one phone lookup service</p>
+                    <button class="btn try again">Try again</button>
+                </div>
+
+                <img src="./assets/img/fireworks.svg" class="image" alt="">
+            </div>
+        </section>
+    </main>
 </body>
 
 </html>
