@@ -90,7 +90,6 @@ body, input {
 
 .input-field {
     max-width: 15.625rem;
-    width: min-content;
     height: 3.5rem;
     background-color: #f0f0f0;
     border-radius: 3.5rem;
@@ -98,10 +97,6 @@ body, input {
     grid-template-columns: 15% 20% 65%;
     padding: 0 .5rem;
     margin-bottom: 0.625rem;
-}
-
-#ccode {
-    min-width: max-content;
 }
 
 .material-symbols-outlined {
@@ -119,7 +114,6 @@ body, input {
     font-weight: 600;
     font-size: 1.1rem;
     color: #333333;
-    width: max-content;
 }
 
 .input-field input::placeholder {
@@ -153,6 +147,7 @@ body, input {
     left: 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    /* background-color: rgb(249, 241, 241); */
 }
 
 .panel {
@@ -165,7 +160,7 @@ body, input {
 }
 
 .panel-left {
-    padding: 3rem 17% 2rem 12%;
+    padding: 3rem 17% 3rem 17%;
     pointer-events: all;
 }
 
@@ -251,7 +246,7 @@ body, input {
 /* Animation */
 .container.show-result-mode:before {
     transform: translate(100%, -50%);
-    right: 40%;
+    right: 52%;
 }
 
 .container.show-result-mode .panel-left .image,
@@ -325,7 +320,6 @@ body, input {
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
-        padding: 2.5rem 8%;
     }
 
     .panel-left {
