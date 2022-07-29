@@ -3,7 +3,7 @@ import { getNetworkOperators, getGreetings } from "./data.mjs";
 function startApp() {
   console.log("..running");
   showLogo();
-};
+}
 
 // show network operator logo of user's phone number
 function showLogo() {
@@ -27,7 +27,7 @@ function showLogo() {
     let logo = document.querySelector(".logo");
 
     // update headline
-    updateHeadline(networkName);
+    updateHeadline(networkName, phoneNum);
 
     if (networkName) {
       // if network name is a match, display the corresponding logo
@@ -35,15 +35,15 @@ function showLogo() {
       logo.classList.remove("hidden");
     } else {
       // if network name is not found, display error image
+      logo.classList.remove("hidden");
       logo.src = `./assets/img/not-found.svg`;
     }
   }
 
   // Function to search network operator prefixes for a match with the value from input field
   function getMatchingNetworkOperator(phoneNum) {
-    if (!phoneNum.startsWith('0')) {
-        phoneNum = '0' + phoneNum;
-    }
+      phoneNum = phoneNum.replace(/[^\d]/g, "")
+      phoneNum = "0" + phoneNum;
 
     // variable to hold matching network operator if found
     let matchingNetworkOperator = "";
@@ -72,7 +72,15 @@ function showLogo() {
     return matchingNetworkOperator;
   }
 
-  function updateHeadline(network) {
+  function updateHeadline(network, num) {
+    if (!num.startsWith("0")) {
+      num = num.replace(/[^\d]/g, "");
+      num = `0${num.slice(0, 3)} ${num.slice(3, 6)} ${num.slice(6)}`;
+    } else {
+      num = num.replace(/[^\d]/g, "");
+      num = `${num.slice(0, 4)} ${num.slice(4, 7)} ${num.slice(7)}`;
+    }
+
     const greetings = getGreetings();
     // get random greeting
     let greeting = () => {
@@ -82,17 +90,70 @@ function showLogo() {
     // get the headline text elements
     let title = document.querySelector(".result-title");
     let headline = document.querySelector(".result-headline");
+    let two = document.querySelector(".two");
     if (network) {
       title.textContent = greeting();
-      headline.textContent = `Your service provider is ${network}`;
+      headline.textContent = `We scanned through the database and are pleased to inform you that we found it!`;
+      two.textContent = `${num} is subscribed to ${network}'s network.`;
     } else {
       title.textContent = `OOPS!`;
       headline.textContent = `Sorry, we couldn't find your service provider.`;
+      two.textContent = "";
     }
   }
 }
 
+export function formatNum() {
+  const inputField = document.getElementById("phone");
+
+  const formattedValue = formatNumValue(inputField.value);
+
+  inputField.value = formattedValue;
+}
+
+function formatNumValue(num) {
+  if (!num) return num;
+
+  // remove non digits from inputted number
+  const phoneNum = num.replace(/[^\d]/g, "");
+
+  let phoneNumLength = phoneNum.length;
+
+  if (phoneNumLength < 4) {
+    return phoneNum;
+  }
+  if (phoneNum.startsWith("0") && phoneNumLength < 7) {
+    return `${phoneNum.slice(1, 2)} ${phoneNum.slice(2, 5)} ${phoneNum.slice(5)}`;
+  } 
+  if (phoneNumLength < 7) {
+    return `${phoneNum.slice(0, 2)} ${phoneNum.slice(2, 5)} ${phoneNum.slice(5)}`;
+  } 
+  if (phoneNum.startsWith("0") && phoneNumLength < 10) {
+    return `${phoneNum.slice(1, 2)} ${phoneNum.slice(2, 5)} ${phoneNum.slice(5)}`;
+  } 
+  if (phoneNumLength < 10) {
+    return `${phoneNum.slice(0, 2)} ${phoneNum.slice(2, 5)} ${phoneNum.slice(5)}`;
+  } 
+  if (phoneNum.startsWith("0") && phoneNumLength >= 10) {
+    return `${phoneNum.slice(1, 4)} ${phoneNum.slice(4, 7)} ${phoneNum.slice(7)}`;
+  } 
+  if (phoneNumLength >= 10)  {
+    return `${phoneNum.slice(0, 3)} ${phoneNum.slice(3, 6)} ${phoneNum.slice(6)}`;
+  }
+}
+
+export function clearResult() {
+  const title = document.querySelector(".result-title");
+  const headline = document.querySelector(".result-headline");
+  const two = document.querySelector(".two");
+  const logo = document.querySelector(".logo");
+
+  title.textContent = `OOPS!`;
+  headline.textContent = `Sorry, we couldn't find your service provider.`;
+  two.textContent = "";
+  logo.classList.remove("hidden");
+  logo.src = `./assets/img/not-found.svg`;
+}
 // ======= DO NOT EDIT ============== //
 export default startApp;
 // ======= EEND DO NOT EDIT ========= //
-  
