@@ -102,6 +102,11 @@ body, input {
 }
 
 .input-field-wrap {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+} 
+
+.sub-wrap {
     display: flex;
     justify-content: space-between;
     gap: .625rem;
