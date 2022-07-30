@@ -2,102 +2,106 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Google Material Icon -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- Google Material Icon -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
-  <!-- Link CSS -->
-  <link rel="stylesheet" href="./assets/styles/style.css">
+    <!-- Link CSS -->
+    <link rel="stylesheet" href="./assets/styles/style.css">
 
-  <!-- Link JS -->
-  <script src="./assets/scripts/index.mjs" type="module" defer></script>
+    <!-- Link JS -->
+    <script src="./assets/scripts/index.mjs" type="module" defer></script>
 
-  <!-- Page icon -->
-  <link rel="icon" href="./assets/img/page-icon.png">
-  <title>Phonie - Nigerian Phone Lookup Service</title>
+    <!-- Page icon -->
+    <link rel="icon" href="./assets/img/page-icon.png">
+    <title>Phonie - Nigerian Phone Lookup Service</title>
 </head>
 
 <body>
-  <main class="container">
-    <section class="top-wrapper">
-      <div class="top-container">
-        <form action="" class="get-number">
-          <p class="form-headline">Let's find your number</p>
-          <div class="input-field-wrap">
-            <div class="name-field-wrap">
-              <div class="name-field input-field">
-                <span class="material-symbols-outlined">person</span>
-                <input type="text" name="name" id="name" placeholder="Name">
-              </div>
-            </div>
-            <div class="sub-wrap">
-              <div class="input-field">
-                <span class="material-symbols-outlined">call</span>
-
-                <input type="text" id="ccode" value="+234" disabled>
-                <input type="tel" name="phone" id="phone" maxlength="12" placeholder="801 234 5678" required>
-              </div>
-              <div class="delete-forever-wrap">
-                <span class="material-symbols-outlined delete_forever">
-                  delete_forever
-                </span>
-              </div>
-            </div>
-          </div>
-          <input type="submit" value="Search" class="btn" id="search-button">
-        </form>
-
-        <div class="show-network">
-          <h2 class="result-title"></h2>
-          <p class="result-headline"></p>
-          <p class="result-headline two"></p>
-          <div class="logo-container">
-            <img src="" alt="" class="logo hidden">
-          </div>
+    <main class="container-0">
+        <div class="container">
+            <section class="top-wrapper">
+                <div class="top-container">
+                    <form action="" class="get-number">
+                        <p class="form-headline">Let's find your number</p>
+                        <div class="input-field-wrap">
+                            <div class="name-field-wrap">
+                                <div class="name-field input-field">
+                                    <span class="material-symbols-outlined">person</span>
+                                    <input type="text" name="name" id="name" placeholder="Name">
+                                </div>
+                            </div>
+                            <div class="sub-wrap">
+                                <div class="input-field">
+                                    <span class="material-symbols-outlined">call</span>
+    
+                                    <input type="text" id="ccode" value="+234" disabled>
+                                    <input type="tel" name="phone" id="phone" maxlength="12" placeholder="801 234 5678"
+                                        required>
+                                </div>
+                                <div class="delete-forever-wrap">
+                                    <span class="material-symbols-outlined delete_forever">
+                                        delete_forever
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Search" class="btn" id="search-button">
+                    </form>
+    
+                    <div class="show-network">
+                        <h2 class="result-title"></h2>
+                        <p class="result-headline"></p>
+                        <p class="result-headline two"></p>
+                        <div class="logo-container">
+                            <img src="" alt="" class="logo hidden">
+                        </div>
+                    </div>
+                </div>
+    
+            </section>
+    
+            <section class="panels-container">
+                <div class="panel panel-left">
+                    <div class="welcome">
+                        <h2 class="welcome-title">Phonie</h2>
+                        <p class="welcome-text">Your number one phone&mdash;lookup service</p>
+                        <span>
+                            Need to gift airtime to a buddy? Easily find out what network operator they subscribe to.
+                        </span>
+                        <button class="btn try now">Get started</button>
+                    </div>
+    
+                    <img src="./assets/img/search.svg" class="image" alt="">
+                </div>
+    
+                <div class="panel panel-right">
+                    <div class="welcome">
+                        <h2 class="welcome-title">Phonie</h2>
+                        <p class="welcome-text">Your number one phone&mdash;lookup service</p>
+                        <span>
+                            Need to gift airtime to a buddy? Easily find out what network operator they subscribe to.
+                        </span>
+                        <button class="btn try again">Try again</button>
+                    </div>
+    
+                    <img src="./assets/img/fireworks.svg" class="image" alt="">
+                </div>
+            </section>
+    
+            <footer class="footer">
+                <p>
+                    Made with 💙 by Circle-219 <br /> &copy;2022
+                </p>
+            </footer>
         </div>
-      </div>
-
-    </section>
-
-    <section class="panels-container">
-      <div class="panel panel-left">
-        <div class="welcome">
-          <h2 class="welcome-title">Phonie</h2>
-          <p class="welcome-text">Your number one phone&mdash;lookup service</p>
-          <span>
-            Need to gift airtime to a buddy? Easily find out what network operator they subscribe to.
-          </span>
-          <button class="btn try now">Get started</button>
-        </div>
-
-        <img src="./assets/img/search.svg" class="image" alt="">
-      </div>
-
-      <div class="panel panel-right">
-        <div class="welcome">
-          <h2 class="welcome-title">Phonie</h2>
-          <p class="welcome-text">Your number one phone&mdash;lookup service</p>
-          <span>
-            Need to gift airtime to a buddy? Easily find out what network operator they subscribe to.
-          </span>
-          <button class="btn try again">Try again</button>
-        </div>
-
-        <img src="./assets/img/fireworks.svg" class="image" alt="">
-      </div>
-    </section>
-    <footer class="footer">
-      <p class="copyright">
-        Copyright &copy; <span class="year">2022</span> by Circle 219
-      </p>
-    </footer>
-  </main>
+    </main>
 
 </body>
 

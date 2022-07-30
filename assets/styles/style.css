@@ -21,6 +21,7 @@ body, input {
     display: none;
 }
 
+.container-0,
 .container {
     position: relative;
     width: 100%;
@@ -295,6 +296,16 @@ body, input {
     transform: translateX(50rem);
 }
 
+.footer {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    text-align: center;
+    line-height: 1.4;
+    font-size: .85rem;
+    transform: translateX(-50%);
+}
+
 /* Animation */
 .container.show-result-mode:before {
     transform: translate(100%, -50%);
@@ -466,11 +477,4 @@ body, input {
         bottom: 45%;
         left: 50%;
     }
-}
-
-
-/* Sticky Footer */
-
-.footer .sticky {
-  position: fixed;
 }
